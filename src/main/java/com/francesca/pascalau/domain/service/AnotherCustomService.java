@@ -1,7 +1,7 @@
 package com.francesca.pascalau.domain.service;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class AnotherCustomService {
 }
