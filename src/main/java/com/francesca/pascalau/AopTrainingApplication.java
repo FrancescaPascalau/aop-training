@@ -1,4 +1,4 @@
-package com.francesca.pascalau.application;
+package com.francesca.pascalau;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
