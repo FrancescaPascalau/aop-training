@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class LoggingService {
+public class LogExecutionTimeService {
 
     /**
      * This pointcut defines that it should be executed for all methods from within
