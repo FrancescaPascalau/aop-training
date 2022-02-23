@@ -18,4 +18,9 @@ public class AnotherCustomService {
                 .issuedAt(request.getCreatedAt())
                 .build();
     }
+
+    @LogMethodInfo
+    public void failOnPurpose() throws Exception {
+        throw new Exception("Oh no! This is an exception!");
+    }
 }

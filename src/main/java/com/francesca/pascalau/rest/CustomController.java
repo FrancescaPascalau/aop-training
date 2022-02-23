@@ -46,4 +46,9 @@ public class CustomController {
 
         return new ResponseEntity<>(customResponse, new HttpHeaders(), HttpStatus.OK);
     }
+
+    @GetMapping("/error")
+    public void getError() throws Exception {
+        anotherCustomService.failOnPurpose();
+    }
 }
