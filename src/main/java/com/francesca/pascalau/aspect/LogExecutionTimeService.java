@@ -26,7 +26,8 @@ public class LogExecutionTimeService {
     }
 
     /**
-     * Logging the execution time for any method annotated with @LogExecutionTime and that is inside a Service class
+     * Logging the execution time for any method annotated with @LogExecutionTime and that is inside a Service class.
+     * Around advice can perform custom behavior both before and after the method invocation.
      */
     @Around("@annotation(com.francesca.pascalau.aspect.annotation.LogExecutionTime) && isServiceMethod()")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
