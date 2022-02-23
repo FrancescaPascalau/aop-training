@@ -25,6 +25,9 @@ public class LogExecutionTimeService {
     private void isServiceMethod2() {
     }
 
+    /**
+     * Logging the execution time for any method annotated with @LogExecutionTime and that is inside a Service class
+     */
     @Around("@annotation(com.francesca.pascalau.aspect.annotation.LogExecutionTime) && isServiceMethod()")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();

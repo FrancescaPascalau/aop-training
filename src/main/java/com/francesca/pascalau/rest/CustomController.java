@@ -23,9 +23,20 @@ public class CustomController {
     private final CustomService customService;
     private final AnotherCustomService anotherCustomService;
 
-    @PostMapping("/create")
+    @PostMapping("/create/log")
     public ResponseEntity<CustomRequest> create(@RequestBody CustomParams params) {
         var customRequest = customService.create(
+                CustomParams.builder()
+                        .type(params.getType())
+                        .message(params.getMessage())
+                        .build());
+
+        return new ResponseEntity<>(customRequest, new HttpHeaders(), HttpStatus.OK);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<CustomRequest> createWithoutLog(@RequestBody CustomParams params) {
+        var customRequest = anotherCustomService.create(
                 CustomParams.builder()
                         .type(params.getType())
                         .message(params.getMessage())

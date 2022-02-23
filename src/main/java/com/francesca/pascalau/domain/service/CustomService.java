@@ -14,11 +14,21 @@ public class CustomService {
 
     @LogExecutionTime
     public CustomRequest create(CustomParams params) {
+        sleep(2000);
+
         return CustomRequest.builder()
                 .id(UUID.randomUUID())
                 .type(Type.valueOf(params.getType()))
                 .message(params.getMessage())
                 .createdAt(LocalDateTime.now())
                 .build();
+    }
+
+    private void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
