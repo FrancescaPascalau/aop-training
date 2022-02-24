@@ -11,6 +11,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface LogMethodInfo {
 
+    /**
+     * Not really necessary, but it can be defined at the interface level too
+     */
     LogLevel defaultLogging() default LogLevel.INFO;
 
     LogLevel exceptionLogging() default LogLevel.WARN;
