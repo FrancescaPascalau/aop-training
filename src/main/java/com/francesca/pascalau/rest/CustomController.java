@@ -23,7 +23,7 @@ public class CustomController {
     private final CustomService customService;
     private final AnotherCustomService anotherCustomService;
 
-    @PostMapping("/create/log")
+    @PostMapping("/create/with-log")
     public ResponseEntity<CustomRequest> create(@RequestBody CustomParams params) {
         var customRequest = customService.create(
                 CustomParams.builder()
@@ -34,7 +34,7 @@ public class CustomController {
         return new ResponseEntity<>(customRequest, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/create/without-log")
     public ResponseEntity<CustomRequest> createWithoutLog(@RequestBody CustomParams params) {
         var customRequest = anotherCustomService.create(
                 CustomParams.builder()
@@ -45,7 +45,7 @@ public class CustomController {
         return new ResponseEntity<>(customRequest, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @GetMapping("/response")
+    @GetMapping("/success")
     public ResponseEntity<CustomResponse> getResponse() {
         var customResponse = anotherCustomService.create(
                 CustomRequest.builder()
@@ -58,8 +58,8 @@ public class CustomController {
         return new ResponseEntity<>(customResponse, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @GetMapping("/error")
-    public void getError() throws Exception {
+    @GetMapping("/fail")
+    public void getException() throws Exception {
         anotherCustomService.failOnPurpose();
     }
 }

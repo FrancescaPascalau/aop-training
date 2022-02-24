@@ -14,3 +14,5 @@ This repo contains some AOP concepts used to create custom annotations.
   “before” and “after” advice. The main purpose of aspects is to support cross-cutting concerns, such as logging,
   profiling, caching, and transaction management.
 
+  Swagger docs at: `http://localhost:8090/swagger-ui/index.html`
+
