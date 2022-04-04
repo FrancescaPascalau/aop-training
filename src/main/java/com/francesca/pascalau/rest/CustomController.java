@@ -25,7 +25,7 @@ public class CustomController {
 
     @PostMapping("/create/with-log")
     public ResponseEntity<CustomRequest> create(@RequestBody CustomParams params) {
-        var customRequest = customService.create(
+        var customRequest = customService.logExecutionTime(
                 CustomParams.builder()
                         .type(params.getType())
                         .message(params.getMessage())
@@ -36,7 +36,7 @@ public class CustomController {
 
     @PostMapping("/create/without-log")
     public ResponseEntity<CustomRequest> createWithoutLog(@RequestBody CustomParams params) {
-        var customRequest = anotherCustomService.create(
+        var customRequest = anotherCustomService.logExecutionTime(
                 CustomParams.builder()
                         .type(params.getType())
                         .message(params.getMessage())
@@ -47,7 +47,7 @@ public class CustomController {
 
     @GetMapping("/success")
     public ResponseEntity<CustomResponse> getResponse() {
-        var customResponse = anotherCustomService.create(
+        var customResponse = anotherCustomService.logInfo(
                 CustomRequest.builder()
                         .id(UUID.randomUUID())
                         .createdAt(LocalDateTime.now())

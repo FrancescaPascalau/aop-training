@@ -15,7 +15,7 @@ import java.util.UUID;
 public class AnotherCustomService {
 
     @LogExecutionTime
-    public CustomRequest create(CustomParams params) {
+    public CustomRequest logExecutionTime(CustomParams params) {
         return CustomRequest.builder()
                 .id(UUID.randomUUID())
                 .type(Type.valueOf(params.getType()))
@@ -25,7 +25,7 @@ public class AnotherCustomService {
     }
 
     @LogMethodInfo
-    public CustomResponse create(CustomRequest request) {
+    public CustomResponse logInfo(CustomRequest request) {
         return CustomResponse.builder()
                 .id(UUID.randomUUID())
                 .message(request.getMessage())
